@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.joonyoung.gms">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GoggleMapSample">
+        <!-- API Key를 숨기는 이유
+        * - API Key는 서비스사에서 요청이 승인된 자에 한 해 개별 발급해주는 사용자 고유 키이다.
+        * - 즉, 이것이 노출되면 내게 주어진 키로 서비스를 도둑 이용하고, 그에 대한 대가(사용료/서비스차단 등)
+        *   은 키의 주인인 내가 되는 것이다.
+        * - 따라서, API Key는 절대 노출되어서는 안된다.
+        */
+
+        /** API Key 숨기기
+        * - local.properties에 API키를 저장한다
+        *   - local.properties는 git과 같은 공유 플랫폼에 노출되어서는 안된다는 것을 반드시 인지하고 있어야하며
+        *     이를 인지하고 있다는 전제하에 local.properties에 값을 숨기는 것이다.
+        * - app레벨의 build.gradle에서 placeholder 생성하기
+        *   - 출처 : https://developer.android.com/studio/build/manifest-build-variables
+        * - AndroidManifest에서, 위의 placeholder를 참조하게 설정하기
+        * @from : https://steemit.com/kr/@etainclub/google-map-api-key
+        -->
+
+        <!-- 아래처럼 메타데이터 태그에 발급 받은 API키를 설정합니다. 자세한 방법은 GoogleSearch.java의 주석 참고 -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${googleMapApiKey}"/>
+        <activity android:name=".activities.GoogleSearch">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

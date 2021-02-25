@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E6E1B7"
+    android:padding="16dp"
+    tools:context=".activities.GoogleSearch">
+
+    <Spinner
+        android:id="@+id/code_spinner"
+        android:layout_width="match_parent"
+        android:spinnerMode="dropdown"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/location_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        />
+    <fragment
+        android:id="@+id/google_map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.GoogleSearch"
+        android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+</LinearLayout>
